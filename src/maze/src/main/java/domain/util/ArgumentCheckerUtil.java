@@ -1,8 +1,13 @@
 package domain.util;
 
+import domain.constants.Constants;
+
 public class ArgumentCheckerUtil {
   public static void checkMazeSize(int value) {
-    if (value <= 1) throw new ArrayIndexOutOfBoundsException("size cannot be zero or less, size: " + value);
+    if (value <= 1 || value > Constants.MAX_SIZE_MAZE) {
+      throw new ArrayIndexOutOfBoundsException(
+          "size cannot be one or less and more " + Constants.MAX_SIZE_MAZE + ", size: " + value);
+    }
   }
 
   public static void checkIndexBounds(int value, int maxValue) {

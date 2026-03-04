@@ -4,7 +4,6 @@ import domain.constants.Constants;
 import domain.model.PerfectMaze;
 import domain.structures.SetUnion;
 import domain.util.ArgumentCheckerUtil;
-
 import java.util.Random;
 
 public class PerfectMazeGenerator {
@@ -30,7 +29,8 @@ public class PerfectMazeGenerator {
   }
 
   /**
-   * Метод для создания идеального лабиринта исходя из размеров лабиринта, полученных в конструкторе<br><br>
+   * Метод для создания идеального лабиринта исходя из размеров лабиринта, полученных в
+   * конструкторе<br><br>
    *
    * Массив mazeRow имеет следующую структуру: <br>
    * <code>0</code> - ни правой ни нижней стены<br>
@@ -57,8 +57,10 @@ public class PerfectMazeGenerator {
   }
 
   /**
-   * То же самое, что и метод create(), только в процессе создания лабиринта он отображается в терминале
+   * То же самое, что и метод create(), только в процессе создания лабиринта он отображается в
+   * терминале
    */
+  // todo неиспользуемый метод
   public PerfectMaze createAndShow() {
     int[] mazeRow = new int[columns];
 
@@ -81,7 +83,6 @@ public class PerfectMazeGenerator {
 
   private void randomRightWalls(int[] mazeRow) {
     for (int i = 0; i < columns - 1; i++) {
-
       if (setUnion.areConnected(i, i + 1)) { // если в едином множестве, то ставим правую стенку
         mazeRow[i] = Constants.RIGHT_WALL;
       } else { // если не в одном множестве
@@ -104,10 +105,11 @@ public class PerfectMazeGenerator {
       // Ячейка лабиринта не одна в своем множестве.
       // А если одна, то мы нижнюю границу не ставим (то есть пропускаем итерацию)
 
-
-      if (!setUnion.isAlone(i)) { // если множество состоит из одного элемента, то пропускаем итерацию
+      if (!setUnion.isAlone(
+              i)) { // если множество состоит из одного элемента, то пропускаем итерацию
         int value = randomZeroOrTwo();
-        if (value == Constants.EMPTY) ++emptyCount;
+        if (value == Constants.EMPTY)
+          ++emptyCount;
 
         boolean isLast = setUnion.isLastInSet(i);
 
@@ -120,9 +122,9 @@ public class PerfectMazeGenerator {
         // сумма, т.к. мы учитываем, стоит ли еще правая стенка тут, если да, то у нас уже
         // число 3 в ячейке, а если нет, то число 2
         bottomBoards[i] += value;
-        if (isLast) emptyCount = 0;
+        if (isLast)
+          emptyCount = 0;
       }
-
     }
   }
 

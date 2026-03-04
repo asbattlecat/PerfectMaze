@@ -1,14 +1,12 @@
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import domain.algorithm.PerfectMazeDFS;
 import domain.algorithm.PerfectMazeGenerator;
 import domain.model.PerfectMaze;
-import org.junit.jupiter.api.Test;
-
 import java.awt.*;
 import java.util.List;
 import java.util.Random;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.Test;
 
 public class PathFinderTests {
   @Test
@@ -30,7 +28,6 @@ public class PathFinderTests {
 
       assertNotNull(path);
     }
-
   }
 
   private int randomCoordinate(Random random, int max) {

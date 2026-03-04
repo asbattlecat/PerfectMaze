@@ -4,9 +4,10 @@ import domain.util.ArgumentCheckerUtil;
 
 /**
  * Структурка данных для работы со множествами. То есть для определения того, соединены ли
- * между собой ячейки в лабиринте. Алгоритм хрупкий очень, и работает только с алгоритмом Эллера в паре
+ * между собой ячейки в лабиринте. Алгоритм хрупкий очень, и работает только с алгоритмом Эллера в
+ * паре
  */
-public class SetUnion {
+public class SetUnion { // SetUnion - объединение множеств
   private final int size;
   private final int[] setUnion;
   private int biggestSetNumber;
@@ -21,6 +22,7 @@ public class SetUnion {
     biggestSetNumber = size - 1;
   }
 
+  // todo - неиспользуемый метод
   public int getId(int index) {
     return setUnion[index];
   }
@@ -60,7 +62,7 @@ public class SetUnion {
 
   public void disunion(int value) {
     ArgumentCheckerUtil.checkIndexBounds(value, size);
-//    biggestSetNumber += 1;
+    //    biggestSetNumber += 1;
     setUnion[value] = ++biggestSetNumber;
   }
 

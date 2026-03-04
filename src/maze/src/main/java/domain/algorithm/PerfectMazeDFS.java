@@ -2,7 +2,6 @@ package domain.algorithm;
 
 import domain.constants.Constants;
 import domain.model.PerfectMaze;
-
 import java.awt.*;
 import java.util.*;
 import java.util.List;
@@ -17,7 +16,8 @@ public class PerfectMazeDFS {
   private final int columns;
 
   public PerfectMazeDFS(PerfectMaze maze) {
-    rightWallsMatrix = maze.getRightWallsMatrix();;
+    rightWallsMatrix = maze.getRightWallsMatrix();
+    ;
     bottomWallsMatrix = maze.getBottomWallsMatrix();
     rows = maze.getRows();
     columns = maze.getColumns();
@@ -27,7 +27,8 @@ public class PerfectMazeDFS {
    * Поиск пути от <code>start</code> до <code>end</code>.
    * @param start координата начала пути (<code>Point(x, y)</code>)
    * @param end координата конца пути (<code>Point(x, y)</code>)
-   * @return (<code>List< Point ></code>), если путь найден. Если не найден - null. При успехе возвращается
+   * @return (<code>List< Point ></code>), если путь найден. Если не найден - null. При успехе
+   *     возвращается
    * весь путь в координатах от <code>start</code> до <code>end</code>
    */
   public List<Point> findPath(Point start, Point end) {
@@ -39,12 +40,12 @@ public class PerfectMazeDFS {
 
     stack.push(start);
 
-
     while (!stack.isEmpty()) {
       Point current = stack.pop();
 
       // уже посещена, пофиг, пропускаем
-      if (visited[current.y][current.x]) continue;
+      if (visited[current.y][current.x])
+        continue;
 
       // отмечаем как посещенную
       visited[current.y][current.x] = true;

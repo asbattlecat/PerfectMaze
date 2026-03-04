@@ -1,19 +1,17 @@
+import static org.junit.jupiter.api.Assertions.*;
+
 import domain.algorithm.PerfectMazeGenerator;
 import domain.constants.Constants;
 import domain.model.PerfectMaze;
-import org.junit.jupiter.api.Test;
-
 import java.awt.*;
 import java.util.Stack;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 public class PerfectMazeTests {
-
   @Test
   void isPerfect() {
     for (int i = 0; i < 1000; i++) {
-      PerfectMazeGenerator mazeGenerator = new PerfectMazeGenerator(100, 100);
+      PerfectMazeGenerator mazeGenerator = new PerfectMazeGenerator(50, 50);
       PerfectMaze maze = mazeGenerator.create();
       assertTrue(testConnectivity(maze));
       assertTrue(testNoCycles(maze));
@@ -40,7 +38,8 @@ public class PerfectMazeTests {
 
     while (!stack.isEmpty()) {
       Point current = stack.pop();
-      if (visited[current.x][current.y]) continue;
+      if (visited[current.x][current.y])
+        continue;
 
       visited[current.x][current.y] = true;
       visitedCount++;
